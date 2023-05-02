@@ -25,6 +25,13 @@ resource "spacelift_environment_variable" "context-plaintext" {
   write_only = false
 }
 
+resource "spacelift_environment_variable" "context-plaintext_2" {
+  context_id = spacelift_context.managed.id
+  name       = "CONTEXT_PUBLIC_2"
+  value      = "This should be visible!"
+  write_only = false
+}
+
 # For another (secret) variable, let's create programmatically create a super
 # secret password.
 resource "random_password" "context-password" {
